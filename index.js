@@ -2,27 +2,26 @@ import express from 'express';
 import { createClient } from '@supabase/supabase-js';
 import cors from 'cors';
 import path from 'path';
-// import { fileURLToPath } from 'url';
 import axios from 'axios';
-// import favicon from 'serve-favicon' ;
 import dotenv from 'dotenv';
+// import { fileURLToPath } from 'url';
+// import favicon from 'serve-favicon' ;
 
 const app = express();
 dotenv.config();
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 const supabaseKey = process.env.SUPABASE_KEY;
 const projectSupabase = process.env.SUPABASE_PROJECTID
 const supabase = createClient(projectSupabase,supabaseKey);
 
-app.use(cors({
-    origin: '*'
-}));
-
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 // app.use(favicon(path.join(__dirname,'pages/favicon.ico')));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
+app.use(cors({
+    origin: '*'
+}));
 
 
 app.get('/menu_sapha', async function(req, res) {
