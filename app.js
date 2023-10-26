@@ -34,7 +34,7 @@ app.use(cors({
     origin: '*'
 }));
 
-app.use(favicon(path.join(__dirname,'pages/favicon.ico')));
+// app.use(favicon(path.join(__dirname,'pages/favicon.ico')));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 
@@ -52,6 +52,28 @@ app.get('/', function(req,res){
 
 app.get('/songrak_add', function(req,res){
     res.status(400).json({"msg":"Hey! calm down pls ;-;"});
+})
+
+app.get('/announce_popup', function(req, res){
+    con.query(`SELECT * FROM announce_popup ORDER BY id DESC LIMIT 1`, function (err, result){
+        if(err) throw err;
+        var htmlShow;
+        data = Object.values(JSON.parse(JSON.stringify(result)));
+        console.log(data)
+        show_status = data.length > 0
+        if(show_status === true){
+            show_data = [data[0].title, data[0].text]
+        }else{
+            show_data = []
+        }
+        console.log(show_status);
+
+        final = {
+            status: show_status,
+            data: show_data
+        }
+        return res.json(final)
+    });
 })
 
 app.post('/songrak_add', function(req, res){
