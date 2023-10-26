@@ -8,8 +8,9 @@ function doGet(e){
   let mins = d.getMinutes();
   let sec = d.getSeconds();
 
-  // ดักและจัดการ Input ที่ได้รับจาก GET Forms
   let date = `${day}/${month}/${year} ${hour}:${mins}:${sec}`;
+  
+  // ดักและจัดการ Input ที่ได้รับจาก GET Forms
   let name_rq = e.parameter.name_rq;
   let class_rq = e.parameter.class_rq;
   let emergency_contact = e.parameter.emergency_contact;

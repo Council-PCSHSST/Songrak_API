@@ -24,7 +24,6 @@ var con = mysql.createConnection({
     database: dbName
 });
 
-
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connect to Database success!");
