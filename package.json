@@ -16,7 +16,7 @@
     "PCSHSST"
   ],
   "author": "TheNongice Wasawat (@_ngixx's - Council PCSHSST)",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/Council-PCSHSST/Songrak_API/issues"
   },
