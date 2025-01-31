@@ -52,7 +52,9 @@ const srk_submit = (req,res) => {
         emergency_contact: emergency,
         request_type: check_type
     }
-
+    
+    return res.status(402).json({"result":"ฟอร์มปิดรับแล้วครับ!"});
+    
     if(check_type === undefined || check_type === NaN || check_type === null){
         console.log("Logic corrupted")
         return res.status(403).json({"result":"logic corrupted"});
